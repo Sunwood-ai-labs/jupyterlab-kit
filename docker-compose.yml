@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  jupyterlab:
+    build: .
+    container_name: jupyterlab-omikuji
+    ports:
+      - "8888:8888"  # JupyterLab
+      - "8501:8501"  # Streamlit
+    volumes:
+      - .:/workspace
+      - jupyter_data:/root/.jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - PYTHONPATH=/workspace
+    working_dir: /workspace
+    command: >
+      bash -c "
+        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' &
+        streamlit run app.py --server.port=8501 --server.address=0.0.0.0 &
+        wait
+      "
+    restart: unless-stopped
+    networks:
+      - omikuji_network
+
+  # 追加のサービス（オプション）
+  # データベースやその他のサービスを追加したい場合はここに記述
+
+volumes:
+  jupyter_data:
+    driver: local
+
+networks:
+  omikuji_network:
+    driver: bridge
