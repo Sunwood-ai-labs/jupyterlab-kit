@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  jupyterlab-gpu-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.gpu
+    container_name: jupyterlab-omikuji-gpu-dev
+    ports:
+      - "8888:8888"  # JupyterLab
+      - "8501:8501"  # Streamlit
+    volumes:
+      - .:/workspace
+      - jupyter_data_gpu_dev:/root/.jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - PYTHONPATH=/workspace
+      - STREAMLIT_SERVER_ENABLE_CORS=true
+      - STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    working_dir: /workspace
+    command: >
+      bash -c "
+        echo '🌟✨ GPU対応JupyterLab + Streamlit開発環境を起動中... ✨🌟' &&
+        echo '💻 JupyterLab: http://localhost:8888' &&
+        echo '🎋 Streamlit: http://localhost:8501' &&
+        echo '🔥 GPU環境: NVIDIA Docker runtime使用' &&
+        echo '⚡ 開発モード: CORS無効、ホットリロード有効' &&
+        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' &
+        streamlit run app.py --server.port=8501 --server.address=0.0.0.0 --server.enableCORS=true --server.enableXsrfProtection=false &
+        wait
+      "
+    restart: unless-stopped
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    networks:
+      - omikuji_gpu_dev_network
+
+volumes:
+  jupyter_data_gpu_dev:
+    driver: local
+
+networks:
+  omikuji_gpu_dev_network:
+    driver: bridge
