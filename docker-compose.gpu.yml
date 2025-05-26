@@ -5,10 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.gpu
-    container_name: jupyterlab-omikuji-gpu
+    container_name: jupyterlab-kit-gpu
     ports:
       - "8888:8888"  # JupyterLab
-      - "8501:8501"  # Streamlit
     volumes:
       - .:/workspace
       - jupyter_data_gpu:/root/.jupyter
@@ -20,13 +19,10 @@ services:
     working_dir: /workspace
     command: >
       bash -c "
-        echo '🚀🎯 GPU対応JupyterLab + Streamlit環境を起動中... 🎯🚀' &&
+        echo '🚀🎯 GPU対応JupyterLab環境を起動中... 🎯🚀' &&
         echo '💻 JupyterLab: http://localhost:8888' &&
-        echo '🎋 Streamlit: http://localhost:8501' &&
         echo '🔥 GPU環境: NVIDIA Docker runtime使用' &&
-        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' &
-        streamlit run app.py --server.port=8501 --server.address=0.0.0.0 &
-        wait
+        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
       "
     restart: unless-stopped
     runtime: nvidia
@@ -38,7 +34,7 @@ services:
               count: all
               capabilities: [gpu]
     networks:
-      - omikuji_gpu_network
+      - jupyterlab_gpu_network
 
   # 追加のサービス（オプション）
   # GPUを使用するデータベースやML処理サービスを追加したい場合はここに記述
@@ -48,5 +44,5 @@ volumes:
     driver: local
 
 networks:
-  omikuji_gpu_network:
+  jupyterlab_gpu_network:
     driver: bridge
