@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  jupyterlab-dev:
+    build: .
+    container_name: jupyterlab-omikuji-dev
+    ports:
+      - "8888:8888"  # JupyterLab
+      - "8501:8501"  # Streamlit
+    volumes:
+      - .:/workspace
+      - jupyter_data_dev:/root/.jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - PYTHONPATH=/workspace
+      - STREAMLIT_SERVER_ENABLE_CORS=true
+      - STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
+    working_dir: /workspace
+    command: >
+      bash -c "
+        echo '🌟✨ JupyterLab + Streamlit開発環境を起動中... ✨🌟' &&
+        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' &
+        echo '💻 JupyterLab: http://localhost:8888' &&
+        echo '🎋 Streamlit: http://localhost:8501' &&
+        streamlit run app.py --server.port=8501 --server.address=0.0.0.0 --server.enableCORS=true --server.enableXsrfProtection=false &
+        wait
+      "
+    restart: unless-stopped
+    networks:
+      - omikuji_dev_network
+
+volumes:
+  jupyter_data_dev:
+    driver: local
+
+networks:
+  omikuji_dev_network:
+    driver: bridge
