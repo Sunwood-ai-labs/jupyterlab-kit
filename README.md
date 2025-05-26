@@ -1,6 +1,6 @@
 <div align="center">
 
-![おみくじアプリバナー](assets/omikuji-banner.svg)
+![JupyterLab Kitバナー](assets/jupyterlab-kit-banner.svg)
 
 </div>
 
@@ -23,8 +23,6 @@
 
 JupyterLab Kitは、データサイエンスと開発作業を効率化するための統合環境です。JupyterLabの強力な機能に加えて、Streamlitを使ったWebアプリケーション開発も可能な、オールインワンの開発キットとなっています。
 
-サンプルアプリケーションとして、日本の伝統的なおみくじをモチーフにしたStreamlitアプリを含んでおり、Webアプリケーション開発の学習やプロトタイピングに最適です。
-
 ### 🎯 主な目的
 - JupyterLabとStreamlitの統合開発環境の提供
 - データサイエンスワークフローの効率化
@@ -41,9 +39,9 @@ JupyterLab Kitは、データサイエンスと開発作業を効率化するた
 
 ### 🚀 Streamlitアプリ開発
 - **⚡ 高速プロトタイピング**: Streamlitによる迅速なWebアプリ開発
-- **🎋 サンプルアプリ**: おみくじアプリによる実装例
 - **🔄 ホットリロード**: リアルタイムでのコード変更反映
 - **📱 レスポンシブ**: モバイル対応のWebインターフェース
+- **📈 データ可視化**: インタラクティブなデータ表示機能
 
 ### 🐳 Docker統合
 - **📦 コンテナ化**: 環境の一貫性と再現性を保証
@@ -70,18 +68,6 @@ JupyterLab Kitは、データサイエンスと開発作業を効率化するた
 - **Jupyter Widgets**: インタラクティブウィジェット
 - **HTML/CSS**: カスタムスタイリング
 - **Linux**: ベースOS（Docker環境）
-
-## 🎋 サンプルアプリ: おみくじ機能
-
-| 運勢 | 確率 | 説明 | カラーテーマ |
-|------|------|------|-------------|
-| 大吉 | 1/7 | 最高の運勢 | #ff6b6b (赤) |
-| 中吉 | 1/7 | とても良い運勢 | #4ecdc4 (ターコイズ) |
-| 小吉 | 1/7 | 良い運勢 | #45b7d1 (青) |
-| 吉 | 1/7 | 普通の運勢 | #96ceb4 (緑) |
-| 末吉 | 1/7 | 後半良くなる運勢 | #feca57 (黄) |
-| 凶 | 1/7 | 注意が必要 | #ff9ff3 (ピンク) |
-| 大凶 | 1/7 | 困難な時期 | #54a0ff (ライトブルー) |
 
 ## 📦 インストールと起動
 
@@ -160,7 +146,7 @@ streamlit run app.py --server.port=8501 --server.address=0.0.0.0
 
 起動後、以下のURLでアクセスできます：
 - **JupyterLab**: http://localhost:8888 - データ分析・開発環境
-- **Streamlitアプリ**: http://localhost:8501 - おみくじWebアプリ
+- **Streamlitアプリ**: http://localhost:8501 - データサイエンスデモアプリ
 
 ### 📊 基本的な使い方
 
@@ -171,10 +157,10 @@ streamlit run app.py --server.port=8501 --server.address=0.0.0.0
 4. **機械学習** - scikit-learnで予測モデルを構築
 
 #### Streamlitアプリ
-1. **おみくじを引く** - 「🎯 おみくじを引く」ボタンをクリック
-2. **結果を確認** - カラフルなカードで運勢結果を表示
-3. **メッセージを読む** - 今日のメッセージとアドバイスを確認
-4. **再挑戦** - 「🔄 もう一度引く」ボタンで再度実行
+1. **デモ実行** - 「📈 サンプルデータ生成」ボタンをクリック
+2. **データ表示** - 生成されたデータをテーブル形式で確認
+3. **可視化確認** - 時系列データとカテゴリ分布のグラフを確認
+4. **統計情報** - データの統計サマリーを確認
 
 ## 📁 ファイル構成
 
@@ -182,7 +168,7 @@ streamlit run app.py --server.port=8501 --server.address=0.0.0.0
 jupyterlab-kit/
 ├── README.md              # プロジェクト説明書（このファイル）
 ├── CLAUDE.md              # Claude AIアシスタント設定
-├── app.py                 # Streamlitおみくじアプリ
+├── app.py                 # Streamlitデモアプリケーション
 ├── requirements.txt       # Pythonパッケージリスト
 ├── Dockerfile             # 標準Docker設定
 ├── Dockerfile.gpu         # GPU対応Docker設定
@@ -191,7 +177,7 @@ jupyterlab-kit/
 ├── docker-compose.dev.yml # 開発用コンテナ構成
 ├── README.gpu.md          # GPU環境セットアップガイド
 └── assets/
-    └── omikuji-banner.svg # プロジェクトバナー
+    └── jupyterlab-kit-banner.svg # プロジェクトバナー
 ```
 
 ### ファイル詳細
@@ -203,7 +189,7 @@ jupyterlab-kit/
 - **`docker-compose.dev.yml`**: 開発用のボリュームマウント設定
 
 #### 📱 アプリケーションファイル
-- **`app.py`**: Streamlitおみくじアプリケーション
+- **`app.py`**: Streamlitデータサイエンスデモアプリケーション
 - **`requirements.txt`**: データサイエンス・Web開発ライブラリ
 
 #### 📖 ドキュメント
@@ -233,20 +219,15 @@ jupyterlab-kit/
 
 ## 🔧 カスタマイズとデベロップメント
 
-### 🎋 Streamlitアプリのカスタマイズ
+### 🚀 Streamlitアプリのカスタマイズ
 
-`app.py`の`OMIKUJI_RESULTS`リストを編集することで、運勢の種類やメッセージをカスタマイズできます：
+`app.py`を編集することで、独自のデータサイエンスアプリケーションを開発できます：
 
 ```python
-OMIKUJI_RESULTS = [
-    {
-        "result": "超大吉",  # 運勢名
-        "color": "#ff0000",  # カラーコード
-        "message": "カスタムメッセージ",
-        "advice": "カスタムアドバイス"
-    }
-    # 他の運勢...
-]
+# カスタムデータ処理
+def custom_data_processing():
+    # あなたの処理をここに実装
+    pass
 ```
 
 ### 🔬 JupyterLab拡張
@@ -340,32 +321,6 @@ print("Environment test successful! 🎉")
 3. コミットメッセージは明確に記述
 4. プルリクエストで詳細な説明を提供
 
-## 📋 今後の予定
-
-### 🔬 JupyterLab環境の強化
-- [ ] より多くのデータサイエンスライブラリの統合
-- [ ] カスタムJupyterLab拡張機能の開発
-- [ ] 自動バックアップ機能の追加
-- [ ] 複数Python環境の管理機能
-
-### 🚀 Streamlit機能の拡張
-- [ ] 運勢の詳細情報ページ追加
-- [ ] ユーザーカスタマイズ機能
-- [ ] 運勢履歴の保存機能（データベース統合）
-- [ ] リアルタイムチャット機能
-
-### 🌐 プラットフォーム対応
-- [ ] Kubernetes対応
-- [ ] クラウドデプロイメント（AWS、GCP、Azure）
-- [ ] 多言語対応（英語、中国語など）
-- [ ] モバイル最適化
-
-### 🔧 開発体験の向上
-- [ ] CI/CD パイプラインの整備
-- [ ] 自動テスト機能の追加
-- [ ] API機能の追加
-- [ ] パフォーマンス監視機能
-
 ## 📄 ライセンス
 
 このプロジェクトはMITライセンスの下で公開されています。詳細は[LICENSE](LICENSE)ファイルをご覧ください。
@@ -378,8 +333,8 @@ print("Environment test successful! 🎉")
 
 ## 🙏 謝辞
 
+- JupyterLabコミュニティの皆様
 - Streamlitコミュニティの皆様
-- 日本の伝統文化であるおみくじに敬意を表して
 - オープンソースコミュニティへの感謝
 
 ---

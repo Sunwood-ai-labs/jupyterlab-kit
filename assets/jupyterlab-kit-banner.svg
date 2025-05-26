@@ -1,0 +1,83 @@
+<svg width="100%" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.1" />
+      <stop offset="25%" style="stop-color:#4ecdc4;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:#45b7d1;stop-opacity:0.1" />
+      <stop offset="75%" style="stop-color:#96ceb4;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#feca57;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b" />
+      <stop offset="25%" style="stop-color:#4ecdc4" />
+      <stop offset="50%" style="stop-color:#45b7d1" />
+      <stop offset="75%" style="stop-color:#96ceb4" />
+      <stop offset="100%" style="stop-color:#feca57" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" rx="15"/>
+  
+  <!-- Decorative data flow lines -->
+  <g stroke="#4ecdc4" stroke-width="2" fill="none" opacity="0.3">
+    <path d="M 50 100 Q 200 80 350 100 Q 500 120 650 100 Q 700 90 750 100" />
+    <path d="M 50 120 Q 150 100 250 120 Q 350 140 450 120 Q 550 100 650 120 Q 700 110 750 120" />
+    <path d="M 50 80 Q 100 60 200 80 Q 300 100 400 80 Q 500 60 600 80 Q 700 100 750 80" />
+  </g>
+  
+  <!-- Code brackets -->
+  <g stroke="#45b7d1" stroke-width="3" fill="none" opacity="0.5">
+    <path d="M 80 60 L 60 60 L 60 140 L 80 140" />
+    <path d="M 720 60 L 740 60 L 740 140 L 720 140" />
+  </g>
+  
+  <!-- Data points -->
+  <g fill="#ff6b6b" opacity="0.6">
+    <circle cx="150" cy="70" r="4"/>
+    <circle cx="300" cy="85" r="3"/>
+    <circle cx="450" cy="75" r="4"/>
+    <circle cx="600" cy="90" r="3"/>
+  </g>
+  
+  <g fill="#96ceb4" opacity="0.6">
+    <circle cx="200" cy="130" r="3"/>
+    <circle cx="350" cy="115" r="4"/>
+    <circle cx="500" cy="125" r="3"/>
+    <circle cx="650" cy="110" r="4"/>
+  </g>
+  
+  <!-- Tech icons representation -->
+  <g fill="#feca57" opacity="0.7">
+    <rect x="120" y="45" width="8" height="8" rx="2"/>
+    <rect x="130" y="45" width="8" height="8" rx="2"/>
+    <rect x="140" y="45" width="8" height="8" rx="2"/>
+    <rect x="560" y="155" width="8" height="8" rx="2"/>
+    <rect x="570" y="155" width="8" height="8" rx="2"/>
+    <rect x="580" y="155" width="8" height="8" rx="2"/>
+  </g>
+  
+  <!-- Main title -->
+  <text x="400" y="85" font-family="Arial, sans-serif" font-size="42" font-weight="bold" text-anchor="middle" fill="url(#textGradient)" filter="url(#glow)">
+    🔬 JupyterLab Kit
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4ecdc4" opacity="0.9">
+    データサイエンス・開発統合環境
+  </text>
+  
+  <!-- Tech stack indicators -->
+  <text x="250" y="155" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#ff6b6b">📊</text>
+  <text x="320" y="155" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#4ecdc4">🐍</text>
+  <text x="400" y="155" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#45b7d1">📈</text>
+  <text x="480" y="155" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#96ceb4">🐳</text>
+  <text x="550" y="155" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#feca57">⚡</text>
+</svg>
