@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
 LABEL maintainer="Sunwood AI Labs"
-LABEL description="JupyterLab environment with Streamlit omikuji app"
+LABEL description="JupyterLab environment for data science"
 
 WORKDIR /workspace
 
@@ -35,7 +35,7 @@ RUN jupyter lab build
 COPY . .
 
 # ポートを公開
-EXPOSE 8888 8501
+EXPOSE 8888
 
 # JupyterLabを起動
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
