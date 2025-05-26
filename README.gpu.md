@@ -1,6 +1,6 @@
 # 🚀🎯 GPU対応 JupyterLab環境 🎯🚀
 
-このプロジェクトは、NVIDIA GPUをサポートするJupyterLab + Streamlit環境を提供します。
+このプロジェクトは、NVIDIA GPUをサポートするJupyterLab環境を提供します。
 
 ## 🔧 前提条件
 
@@ -54,7 +54,6 @@ docker-compose -f docker-compose.gpu.dev.yml logs -f
 起動後、以下のURLでアクセスできます：
 
 - **JupyterLab**: http://localhost:8888
-- **Streamlit おみくじアプリ**: http://localhost:8501
 
 ## 🔥 含まれるGPUライブラリ
 

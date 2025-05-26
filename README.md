@@ -10,23 +10,22 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
 ![JupyterLab](https://img.shields.io/badge/JupyterLab-4.0+-orange.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28.0+-red.svg)
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Maintenance](https://img.shields.io/badge/Maintained-Yes-brightgreen.svg)
 
-**JupyterLab環境と統合されたデータサイエンス・開発キット**
+**JupyterLabによるデータサイエンス・開発キット**
 
 </div>
 
 ## 📖 概要
 
-JupyterLab Kitは、データサイエンスと開発作業を効率化するための統合環境です。JupyterLabの強力な機能に加えて、Streamlitを使ったWebアプリケーション開発も可能な、オールインワンの開発キットとなっています。
+JupyterLab Kitは、データサイエンスと開発作業を効率化するための統合環境です。JupyterLabの強力な機能を活用した、データ分析と機械学習に特化した開発キットです。
 
 ### 🎯 主な目的
-- JupyterLabとStreamlitの統合開発環境の提供
+- JupyterLabベースのデータサイエンス開発環境の提供
 - データサイエンスワークフローの効率化
-- Webアプリケーション開発の学習とプロトタイピング
+- 機械学習プロジェクトの学習と開発
 - Dockerを使った再現可能な開発環境の構築
 
 ## ✨ 主要機能
@@ -37,24 +36,23 @@ JupyterLab Kitは、データサイエンスと開発作業を効率化するた
 - **📝 ノートブック**: インタラクティブな開発・分析環境
 - **🌐 Webインターフェース**: ブラウザベースの直感的なUI
 
-### 🚀 Streamlitアプリ開発
-- **⚡ 高速プロトタイピング**: Streamlitによる迅速なWebアプリ開発
-- **🔄 ホットリロード**: リアルタイムでのコード変更反映
-- **📱 レスポンシブ**: モバイル対応のWebインターフェース
-- **📈 データ可視化**: インタラクティブなデータ表示機能
+### 🧠 機械学習・分析環境
+- **⚡ 高速開発**: JupyterLabによる迅速な分析・開発環境
+- **🔄 インタラクティブ**: リアルタイムでのコード実行と結果確認
+- **📱 アクセシブル**: ブラウザベースの直感的なインターフェース
+- **📈 データ可視化**: 高度なデータ表示・分析機能
 
 ### 🐳 Docker統合
 - **📦 コンテナ化**: 環境の一貫性と再現性を保証
 - **⚙️ Docker Compose**: マルチサービス環境の簡単セットアップ
 - **🔧 GPU対応**: NVIDIA GPU環境での機械学習ワークロード（GPUバージョン）
-- **🔗 ポート管理**: JupyterLab（8888）とStreamlit（8501）の同時アクセス
+- **🔗 ポート管理**: JupyterLab（8888）でのアクセス
 
 ## 🛠️ 技術スタック
 
 ### 核心技術
 - **Python 3.9+**: プログラミング言語
 - **JupyterLab 4.0+**: インタラクティブ開発環境
-- **Streamlit 1.28.0+**: Webアプリケーションフレームワーク
 - **Docker & Docker Compose**: コンテナ化とオーケストレーション
 
 ### データサイエンスライブラリ
@@ -86,7 +84,6 @@ docker-compose up -d
 
 起動後、以下のURLでアクセス可能です：
 - **JupyterLab**: http://localhost:8888
-- **Streamlitアプリ**: http://localhost:8501
 
 ### 🚀 ローカルインストール
 
@@ -137,16 +134,10 @@ docker-compose down
 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
 ```
 
-#### Streamlitアプリの起動
-```bash
-streamlit run app.py --server.port=8501 --server.address=0.0.0.0
-```
-
 ### 🌐 アクセス方法
 
 起動後、以下のURLでアクセスできます：
 - **JupyterLab**: http://localhost:8888 - データ分析・開発環境
-- **Streamlitアプリ**: http://localhost:8501 - データサイエンスデモアプリ
 
 ### 📊 基本的な使い方
 
@@ -156,19 +147,13 @@ streamlit run app.py --server.port=8501 --server.address=0.0.0.0
 3. **可視化** - Matplotlib、Seaborn、Plotlyで美しいグラフを作成
 4. **機械学習** - scikit-learnで予測モデルを構築
 
-#### Streamlitアプリ
-1. **デモ実行** - 「📈 サンプルデータ生成」ボタンをクリック
-2. **データ表示** - 生成されたデータをテーブル形式で確認
-3. **可視化確認** - 時系列データとカテゴリ分布のグラフを確認
-4. **統計情報** - データの統計サマリーを確認
-
 ## 📁 ファイル構成
 
 ```
 jupyterlab-kit/
 ├── README.md              # プロジェクト説明書（このファイル）
 ├── CLAUDE.md              # Claude AIアシスタント設定
-├── app.py                 # Streamlitデモアプリケーション
+├── app.py                 # デモアプリケーション
 ├── requirements.txt       # Pythonパッケージリスト
 ├── Dockerfile             # 標準Docker設定
 ├── Dockerfile.gpu         # GPU対応Docker設定
@@ -183,14 +168,14 @@ jupyterlab-kit/
 ### ファイル詳細
 
 #### 🔬 コア環境ファイル
-- **`Dockerfile`**: 標準Python環境でのJupyterLab + Streamlit統合
+- **`Dockerfile`**: 標準Python環境でのJupyterLab統合
 - **`Dockerfile.gpu`**: NVIDIA GPU対応環境設定
-- **`docker-compose.yml`**: 本番用マルチサービス構成
+- **`docker-compose.yml`**: 本番用サービス構成
 - **`docker-compose.dev.yml`**: 開発用のボリュームマウント設定
 
 #### 📱 アプリケーションファイル
-- **`app.py`**: Streamlitデータサイエンスデモアプリケーション
-- **`requirements.txt`**: データサイエンス・Web開発ライブラリ
+- **`app.py`**: データサイエンスデモアプリケーション
+- **`requirements.txt`**: データサイエンス開発ライブラリ
 
 #### 📖 ドキュメント
 - **`README.md`**: プロジェクト情報とセットアップガイド
@@ -205,12 +190,6 @@ jupyterlab-kit/
 - **拡張機能**: 豊富なプラグインエコシステム
 - **版管理統合**: Gitとの seamless な連携
 
-### 🚀 Streamlit統合
-- **レスポンシブデザイン**: 様々な画面サイズに自動対応
-- **日本語対応**: 完全な日本語インターフェース
-- **リアルタイムプレビュー**: コード変更の即座反映
-- **直感的UI**: ワンクリックで簡単操作
-
 ### 🐳 Docker利点
 - **環境一貫性**: 開発・本番環境の統一
 - **簡単セットアップ**: ワンコマンドでの環境構築
@@ -219,9 +198,9 @@ jupyterlab-kit/
 
 ## 🔧 カスタマイズとデベロップメント
 
-### 🚀 Streamlitアプリのカスタマイズ
+### 📊 データサイエンスプロジェクトの開発
 
-`app.py`を編集することで、独自のデータサイエンスアプリケーションを開発できます：
+JupyterLab環境で独自のデータサイエンスプロジェクトを開発できます：
 
 ```python
 # カスタムデータ処理
@@ -271,7 +250,6 @@ docker-compose logs jupyterlab
 
 # ヘルスチェック
 curl http://localhost:8888  # JupyterLab
-curl http://localhost:8501  # Streamlit
 ```
 
 ### 💻 ローカル環境の動作確認
@@ -279,9 +257,6 @@ curl http://localhost:8501  # Streamlit
 ```bash
 # JupyterLabの起動テスト
 jupyter lab --version
-
-# Streamlitアプリの起動テスト
-streamlit run app.py --server.headless true
 ```
 
 ### 📊 データサイエンス環境のテスト
@@ -334,14 +309,13 @@ print("Environment test successful! 🎉")
 ## 🙏 謝辞
 
 - JupyterLabコミュニティの皆様
-- Streamlitコミュニティの皆様
 - オープンソースコミュニティへの感謝
 
 ---
 
 <div align="center">
 
-**Made with ❤️ using [JupyterLab](https://jupyter.org/) & [Streamlit](https://streamlit.io/)**
+**Made with ❤️ using [JupyterLab](https://jupyter.org/)**
 
 [🏠 ホーム](https://github.com/Sunwood-ai-labs/jupyterlab-kit) | 
 [📊 Issues](https://github.com/Sunwood-ai-labs/jupyterlab-kit/issues) | 
