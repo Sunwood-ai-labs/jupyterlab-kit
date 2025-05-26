@@ -1,0 +1,69 @@
+# NVIDIA CUDA対応のPythonベースイメージを使用
+FROM nvidia/cuda:11.8-devel-ubuntu20.04
+
+LABEL maintainer="Sunwood AI Labs"
+LABEL description="GPU-enabled JupyterLab environment with Streamlit omikuji app"
+
+# 環境変数の設定
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHON_VERSION=3.9
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
+WORKDIR /workspace
+
+# システムパッケージをインストール
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    && add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get update && apt-get install -y \
+    python${PYTHON_VERSION} \
+    python${PYTHON_VERSION}-dev \
+    python${PYTHON_VERSION}-distutils \
+    python3-pip \
+    curl \
+    git \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Pythonのシンボリックリンクを作成
+RUN ln -sf /usr/bin/python${PYTHON_VERSION} /usr/bin/python3 \
+    && ln -sf /usr/bin/python3 /usr/bin/python
+
+# pipをアップグレード
+RUN python -m pip install --upgrade pip
+
+# GPU対応のPyTorchとTensorFlowをインストール
+RUN pip install --no-cache-dir \
+    torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 \
+    tensorflow[and-cuda]
+
+# Pythonパッケージをインストール
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# JupyterLabと追加パッケージをインストール
+RUN pip install --no-cache-dir \
+    jupyterlab \
+    numpy \
+    pandas \
+    matplotlib \
+    seaborn \
+    plotly \
+    scikit-learn \
+    jupyter-widgets \
+    ipywidgets \
+    cupy-cuda11x \
+    numba
+
+# JupyterLab拡張機能をインストール
+RUN jupyter lab build
+
+# アプリケーションファイルをコピー
+COPY . .
+
+# ポートを公開
+EXPOSE 8888 8501
+
+# JupyterLabを起動
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
