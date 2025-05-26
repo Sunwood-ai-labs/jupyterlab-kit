@@ -4,39 +4,74 @@
 
 </div>
 
-# 🎋 おみくじアプリ
+# 🔬 JupyterLab Kit
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![JupyterLab](https://img.shields.io/badge/JupyterLab-4.0+-orange.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28.0+-red.svg)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Maintenance](https://img.shields.io/badge/Maintained-Yes-brightgreen.svg)
 
-**日本の伝統的なおみくじをモチーフにしたStreamlitベースのWebアプリケーション**
+**JupyterLab環境と統合されたデータサイエンス・開発キット**
 
 </div>
 
 ## 📖 概要
 
-このアプリケーションは、ユーザーが仮想的におみくじを引いて今日の運勢を占うことができるシンプルで楽しいWebアプリです。7種類の運勢結果があり、それぞれに特色のあるメッセージとアドバイスが表示されます。
+JupyterLab Kitは、データサイエンスと開発作業を効率化するための統合環境です。JupyterLabの強力な機能に加えて、Streamlitを使ったWebアプリケーション開発も可能な、オールインワンの開発キットとなっています。
+
+サンプルアプリケーションとして、日本の伝統的なおみくじをモチーフにしたStreamlitアプリを含んでおり、Webアプリケーション開発の学習やプロトタイピングに最適です。
 
 ### 🎯 主な目的
-- 日本の伝統文化であるおみくじをデジタル化
-- 毎日のモチベーション向上のためのツール
-- Streamlitの基本機能を活用したサンプルアプリケーション
+- JupyterLabとStreamlitの統合開発環境の提供
+- データサイエンスワークフローの効率化
+- Webアプリケーション開発の学習とプロトタイピング
+- Dockerを使った再現可能な開発環境の構築
 
-## ✨ 機能
+## ✨ 主要機能
 
-- **🎯 おみくじを引く**: ボタンをクリックして運勢を占う
-- **🌈 カラフルなUI**: 運勢ごとに異なる色でカードを表示
-- **💭 メッセージ表示**: 運勢に応じたメッセージとアドバイス
-- **📅 日時表示**: 現在の日時をリアルタイムで表示
-- **🔄 再実行機能**: 何度でもおみくじを引き直し可能
-- **ℹ️ サイドバー情報**: おみくじの種類と詳細な説明
-- **🎈 視覚エフェクト**: バルーンアニメーションで結果を華やかに演出
+### 🔬 JupyterLab環境
+- **📊 データ分析**: NumPy、Pandas、Matplotlib、Seaborn、Plotlyなどの主要ライブラリ
+- **🧠 機械学習**: scikit-learn統合環境
+- **📝 ノートブック**: インタラクティブな開発・分析環境
+- **🌐 Webインターフェース**: ブラウザベースの直感的なUI
 
-## 🎲 運勢の種類
+### 🚀 Streamlitアプリ開発
+- **⚡ 高速プロトタイピング**: Streamlitによる迅速なWebアプリ開発
+- **🎋 サンプルアプリ**: おみくじアプリによる実装例
+- **🔄 ホットリロード**: リアルタイムでのコード変更反映
+- **📱 レスポンシブ**: モバイル対応のWebインターフェース
+
+### 🐳 Docker統合
+- **📦 コンテナ化**: 環境の一貫性と再現性を保証
+- **⚙️ Docker Compose**: マルチサービス環境の簡単セットアップ
+- **🔧 GPU対応**: NVIDIA GPU環境での機械学習ワークロード（GPUバージョン）
+- **🔗 ポート管理**: JupyterLab（8888）とStreamlit（8501）の同時アクセス
+
+## 🛠️ 技術スタック
+
+### 核心技術
+- **Python 3.9+**: プログラミング言語
+- **JupyterLab 4.0+**: インタラクティブ開発環境
+- **Streamlit 1.28.0+**: Webアプリケーションフレームワーク
+- **Docker & Docker Compose**: コンテナ化とオーケストレーション
+
+### データサイエンスライブラリ
+- **NumPy**: 数値計算ライブラリ
+- **Pandas**: データ操作・分析ライブラリ
+- **Matplotlib & Seaborn**: データ可視化ライブラリ
+- **Plotly**: インタラクティブ可視化ライブラリ
+- **scikit-learn**: 機械学習ライブラリ
+
+### 開発・実行環境
+- **Jupyter Widgets**: インタラクティブウィジェット
+- **HTML/CSS**: カスタムスタイリング
+- **Linux**: ベースOS（Docker環境）
+
+## 🎋 サンプルアプリ: おみくじ機能
 
 | 運勢 | 確率 | 説明 | カラーテーマ |
 |------|------|------|-------------|
@@ -48,26 +83,39 @@
 | 凶 | 1/7 | 注意が必要 | #ff9ff3 (ピンク) |
 | 大凶 | 1/7 | 困難な時期 | #54a0ff (ライトブルー) |
 
-## 🛠️ 技術スタック
+## 📦 インストールと起動
 
-- **Python 3.8+**: プログラミング言語
-- **Streamlit 1.28.0+**: Webアプリケーションフレームワーク
-- **HTML/CSS**: カスタムスタイリング
-- **datetime**: 日時処理
-- **random**: ランダム選択機能
+### 🐳 Docker Compose使用（推奨）
 
-## 📦 インストール
+最も簡単な方法は、Docker Composeを使用することです：
 
-### 前提条件
-- Python 3.8以上がインストールされていること
+```bash
+# リポジトリをクローン
+git clone https://github.com/Sunwood-ai-labs/jupyterlab-kit.git
+cd jupyterlab-kit
+
+# 環境を起動
+docker-compose up -d
+```
+
+起動後、以下のURLでアクセス可能です：
+- **JupyterLab**: http://localhost:8888
+- **Streamlitアプリ**: http://localhost:8501
+
+### 🚀 ローカルインストール
+
+Docker環境を使わない場合：
+
+#### 前提条件
+- Python 3.9以上がインストールされていること
 - pipが利用可能であること
 
-### セットアップ手順
+#### セットアップ手順
 
 1. **リポジトリをクローンします：**
 ```bash
-git clone https://github.com/Sunwood-ai-labs/claude-code-gh-action-examples-001.git
-cd claude-code-gh-action-examples-001
+git clone https://github.com/Sunwood-ai-labs/jupyterlab-kit.git
+cd jupyterlab-kit
 ```
 
 2. **仮想環境を作成します（推奨）：**
@@ -83,55 +131,111 @@ pip install -r requirements.txt
 
 ## 🚀 使用方法
 
-### アプリケーションの起動
+### 🐳 Docker環境での使用
 
 ```bash
-streamlit run omikuji_app.py
+# 環境を起動
+docker-compose up -d
+
+# ログを確認
+docker-compose logs -f
+
+# 環境を停止
+docker-compose down
 ```
 
-アプリケーションが起動すると、ブラウザが自動的に開き、通常は `http://localhost:8501` でアクセスできます。
+### 💻 ローカル環境での使用
 
-### 基本的な使い方
+#### JupyterLabの起動
+```bash
+jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+```
 
-1. **アプリケーションにアクセス** - ブラウザでローカルホストを開く
-2. **おみくじを引く** - 「🎯 おみくじを引く」ボタンをクリック
-3. **結果を確認** - カラフルなカードで運勢結果を表示
-4. **メッセージを読む** - 今日のメッセージとアドバイスを確認
-5. **再挑戦** - 「🔄 もう一度引く」ボタンで再度実行
-6. **詳細情報** - サイドバーでおみくじの詳細情報を確認
+#### Streamlitアプリの起動
+```bash
+streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+```
+
+### 🌐 アクセス方法
+
+起動後、以下のURLでアクセスできます：
+- **JupyterLab**: http://localhost:8888 - データ分析・開発環境
+- **Streamlitアプリ**: http://localhost:8501 - おみくじWebアプリ
+
+### 📊 基本的な使い方
+
+#### JupyterLab環境
+1. **ノートブック作成** - 新しいPythonノートブックを作成
+2. **データ分析** - 統合されたライブラリでデータ分析を実行
+3. **可視化** - Matplotlib、Seaborn、Plotlyで美しいグラフを作成
+4. **機械学習** - scikit-learnで予測モデルを構築
+
+#### Streamlitアプリ
+1. **おみくじを引く** - 「🎯 おみくじを引く」ボタンをクリック
+2. **結果を確認** - カラフルなカードで運勢結果を表示
+3. **メッセージを読む** - 今日のメッセージとアドバイスを確認
+4. **再挑戦** - 「🔄 もう一度引く」ボタンで再度実行
 
 ## 📁 ファイル構成
 
 ```
-claude-code-gh-action-examples-001/
-├── README.md           # プロジェクト説明書（このファイル）
-├── omikuji_app.py     # メインアプリケーションファイル
-├── requirements.txt   # 必要なPythonパッケージリスト
-└── .gitignore         # Git除外ファイル設定
+jupyterlab-kit/
+├── README.md              # プロジェクト説明書（このファイル）
+├── CLAUDE.md              # Claude AIアシスタント設定
+├── app.py                 # Streamlitおみくじアプリ
+├── requirements.txt       # Pythonパッケージリスト
+├── Dockerfile             # 標準Docker設定
+├── Dockerfile.gpu         # GPU対応Docker設定
+├── docker-compose.yml     # 標準コンテナ構成
+├── docker-compose.gpu.yml # GPU対応コンテナ構成
+├── docker-compose.dev.yml # 開発用コンテナ構成
+├── README.gpu.md          # GPU環境セットアップガイド
+└── assets/
+    └── omikuji-banner.svg # プロジェクトバナー
 ```
 
 ### ファイル詳細
 
-- **`omikuji_app.py`**: Streamlitアプリケーションのメインファイル
-  - おみくじの結果データ定義
-  - UI/UXの実装
-  - ランダム選択ロジック
-- **`requirements.txt`**: 依存パッケージの管理
-- **`README.md`**: プロジェクト情報とドキュメント
+#### 🔬 コア環境ファイル
+- **`Dockerfile`**: 標準Python環境でのJupyterLab + Streamlit統合
+- **`Dockerfile.gpu`**: NVIDIA GPU対応環境設定
+- **`docker-compose.yml`**: 本番用マルチサービス構成
+- **`docker-compose.dev.yml`**: 開発用のボリュームマウント設定
 
-## 🎨 デザイン特徴
+#### 📱 アプリケーションファイル
+- **`app.py`**: Streamlitおみくじアプリケーション
+- **`requirements.txt`**: データサイエンス・Web開発ライブラリ
 
+#### 📖 ドキュメント
+- **`README.md`**: プロジェクト情報とセットアップガイド
+- **`README.gpu.md`**: GPU環境での機械学習ワークロード用ガイド
+- **`CLAUDE.md`**: AI開発アシスタント設定ファイル
+
+## 🎨 環境特徴
+
+### 🔬 JupyterLab環境
+- **統合開発環境**: ブラウザベースでの直感的な操作
+- **マルチカーネル対応**: Python、R、Scalaなど多言語サポート
+- **拡張機能**: 豊富なプラグインエコシステム
+- **版管理統合**: Gitとの seamless な連携
+
+### 🚀 Streamlit統合
 - **レスポンシブデザイン**: 様々な画面サイズに自動対応
 - **日本語対応**: 完全な日本語インターフェース
-- **視覚的フィードバック**: バルーンエフェクトと色分けされた結果表示
+- **リアルタイムプレビュー**: コード変更の即座反映
 - **直感的UI**: ワンクリックで簡単操作
-- **モダンなスタイリング**: CSS3を活用したグラデーションとシャドウ効果
 
-## 🔧 カスタマイズ
+### 🐳 Docker利点
+- **環境一貫性**: 開発・本番環境の統一
+- **簡単セットアップ**: ワンコマンドでの環境構築
+- **スケーラビリティ**: 需要に応じた簡単なスケーリング
+- **分離性**: ホストシステムからの完全分離
 
-### 運勢の追加・変更
+## 🔧 カスタマイズとデベロップメント
 
-`omikuji_app.py`の`OMIKUJI_RESULTS`リストを編集することで、運勢の種類やメッセージをカスタマイズできます：
+### 🎋 Streamlitアプリのカスタマイズ
+
+`app.py`の`OMIKUJI_RESULTS`リストを編集することで、運勢の種類やメッセージをカスタマイズできます：
 
 ```python
 OMIKUJI_RESULTS = [
@@ -145,17 +249,77 @@ OMIKUJI_RESULTS = [
 ]
 ```
 
-### UIスタイルの変更
+### 🔬 JupyterLab拡張
 
-HTMLとCSSを直接編集することで、カードのデザインや色彩を変更できます。
+新しいデータサイエンスライブラリやJupyterLab拡張機能を追加：
 
-## 🧪 テスト
+```dockerfile
+# Dockerfileに追加
+RUN pip install --no-cache-dir \
+    your-new-library \
+    another-extension
+```
 
-基本的な動作確認：
+### 🐳 Docker環境のカスタマイズ
+
+#### GPU対応の有効化
+GPU環境での機械学習ワークロードには：
+```bash
+docker-compose -f docker-compose.gpu.yml up -d
+```
+
+#### 開発モードの使用
+コードの変更をリアルタイムで反映：
+```bash
+docker-compose -f docker-compose.dev.yml up -d
+```
+
+## 🧪 テストと検証
+
+### 🐳 Docker環境の動作確認
 
 ```bash
-# アプリケーションが正常に起動するかテスト
-streamlit run omikuji_app.py --server.headless true
+# 全サービスの状態確認
+docker-compose ps
+
+# ログ出力の確認
+docker-compose logs
+
+# 特定サービスのログ確認
+docker-compose logs jupyterlab
+
+# ヘルスチェック
+curl http://localhost:8888  # JupyterLab
+curl http://localhost:8501  # Streamlit
+```
+
+### 💻 ローカル環境の動作確認
+
+```bash
+# JupyterLabの起動テスト
+jupyter lab --version
+
+# Streamlitアプリの起動テスト
+streamlit run app.py --server.headless true
+```
+
+### 📊 データサイエンス環境のテスト
+
+JupyterLabで以下のセルを実行して環境を確認：
+
+```python
+# 基本ライブラリのインポートテスト
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+from sklearn import datasets
+
+# 簡単なデータ可視化テスト
+iris = datasets.load_iris()
+df = pd.DataFrame(iris.data, columns=iris.feature_names)
+print("Environment test successful! 🎉")
 ```
 
 ## 🤝 貢献ガイドライン
@@ -178,12 +342,29 @@ streamlit run omikuji_app.py --server.headless true
 
 ## 📋 今後の予定
 
+### 🔬 JupyterLab環境の強化
+- [ ] より多くのデータサイエンスライブラリの統合
+- [ ] カスタムJupyterLab拡張機能の開発
+- [ ] 自動バックアップ機能の追加
+- [ ] 複数Python環境の管理機能
+
+### 🚀 Streamlit機能の拡張
 - [ ] 運勢の詳細情報ページ追加
 - [ ] ユーザーカスタマイズ機能
-- [ ] 運勢履歴の保存機能
+- [ ] 運勢履歴の保存機能（データベース統合）
+- [ ] リアルタイムチャット機能
+
+### 🌐 プラットフォーム対応
+- [ ] Kubernetes対応
+- [ ] クラウドデプロイメント（AWS、GCP、Azure）
 - [ ] 多言語対応（英語、中国語など）
-- [ ] モバイルアプリ版の開発
+- [ ] モバイル最適化
+
+### 🔧 開発体験の向上
+- [ ] CI/CD パイプラインの整備
+- [ ] 自動テスト機能の追加
 - [ ] API機能の追加
+- [ ] パフォーマンス監視機能
 
 ## 📄 ライセンス
 
@@ -205,10 +386,11 @@ streamlit run omikuji_app.py --server.headless true
 
 <div align="center">
 
-**Made with ❤️ using [Streamlit](https://streamlit.io/)**
+**Made with ❤️ using [JupyterLab](https://jupyter.org/) & [Streamlit](https://streamlit.io/)**
 
-[🏠 ホーム](https://github.com/Sunwood-ai-labs/claude-code-gh-action-examples-001) | 
-[📊 Issues](https://github.com/Sunwood-ai-labs/claude-code-gh-action-examples-001/issues) | 
-[🔄 Pull Requests](https://github.com/Sunwood-ai-labs/claude-code-gh-action-examples-001/pulls)
+[🏠 ホーム](https://github.com/Sunwood-ai-labs/jupyterlab-kit) | 
+[📊 Issues](https://github.com/Sunwood-ai-labs/jupyterlab-kit/issues) | 
+[🔄 Pull Requests](https://github.com/Sunwood-ai-labs/jupyterlab-kit/pulls) |
+[📖 Docs](https://github.com/Sunwood-ai-labs/jupyterlab-kit/wiki)
 
 </div>
